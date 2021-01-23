@@ -50,6 +50,17 @@ public class CalculatorFrame extends JFrame {
         bottom.add(add);
 
         JButton minus = new JButton("-");
+        minus.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JButton button = (JButton) e.getSource();
+
+                StringBuilder sb = new StringBuilder(inputField.getText());
+                sb.append(button.getText());
+
+                inputField.setText(sb.toString());
+            }
+        });
         bottom.add(minus);
 
         JButton sqrt = new JButton("SQRT");
@@ -59,7 +70,6 @@ public class CalculatorFrame extends JFrame {
         clear.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 inputField.setText("");
             }
         });
@@ -69,9 +79,18 @@ public class CalculatorFrame extends JFrame {
         calc.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String[] values = inputField.getText().split("\\+");
-                int sum = Integer.parseInt(values[0]) + Integer.parseInt(values[1]);
-                inputField.setText(String.valueOf(sum));
+                //inputField.getText().indexOf("+");
+                if(inputField.getText().contains("+")){
+                    String[] values = inputField.getText().split("\\+");
+                    int sum = Integer.parseInt(values[0]) + Integer.parseInt(values[1]);
+                    inputField.setText(String.valueOf(sum));
+                }
+                if(inputField.getText().contains("-")){
+                    String[] values = inputField.getText().split("\\-");
+                    int sum = Integer.parseInt(values[0]) - Integer.parseInt(values[1]);
+                    inputField.setText(String.valueOf(sum));
+                }
+
             }
         });
         bottom.add(calc);
