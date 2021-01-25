@@ -3,8 +3,11 @@ import javax.swing.*;
 public class Main {
     public static void main(String[] args) {
         //JFrame jframe = new JFrame();
+        for (int i = 10; i > 0; i++) {
 
+        }
         new CalculatorFrame();
+
 
     }
 }

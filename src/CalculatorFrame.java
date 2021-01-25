@@ -1,3 +1,4 @@
+import javax.script.ScriptEngine;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -79,7 +80,6 @@ public class CalculatorFrame extends JFrame {
         calc.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //inputField.getText().indexOf("+");
                 if(inputField.getText().contains("+")){
                     String[] values = inputField.getText().split("\\+");
                     int sum = Integer.parseInt(values[0]) + Integer.parseInt(values[1]);
